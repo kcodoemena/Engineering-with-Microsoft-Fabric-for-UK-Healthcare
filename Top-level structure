@@ -1,0 +1,113 @@
+
+fabric-uk-healthcare-london-cv/
+├─ README.md
+├─ LICENSE
+├─ .gitignore
+├─ .gitattributes
+├─ CODE_OF_CONDUCT.md
+├─ CONTRIBUTING.md
+├─ SECURITY.md
+├─ ROADMAP.md
+├─ CHANGELOG.md
+├─ mkdocs.yml                         # if you publish docs site (optional)
+├─ docs/
+│  ├─ 00_overview/
+│  │  ├─ index.md
+│  │  └─ scenario_canvas.md
+│  ├─ 01_data_sources/
+│  │  ├─ nhsbsa_pca.md
+│  │  ├─ nhsbsa_bnf_codes.md
+│  │  ├─ nhsbsa_prescriber_details.md
+│  │  └─ metoffice_datapoint.md
+│  ├─ 02_architecture/
+│  │  ├─ architecture_overview.md
+│  │  ├─ fabric_items.md
+│  │  └─ lineage_and_zones.md
+│  ├─ 03_governance/
+│  │  ├─ uk_gdpr_basics.md
+│  │  ├─ ico_data_sharing_code_summary.md
+│  │  ├─ dpia_template.md
+│  │  └─ data_sharing_agreement_template.md
+│  ├─ 04_build_guides/
+│  │  ├─ 01_create_workspace_trial.md
+│  │  ├─ 02_lakehouse_setup.md
+│  │  ├─ 03_pipelines_ckan_pca_bnf.md
+│  │  ├─ 04_pipelines_metoffice_3hourly.md
+│  │  ├─ 05_notebooks_transforms.md
+│  │  ├─ 06_eventstream_kql_realtime.md
+│  │  └─ 07_powerbi_semantic_and_reports.md
+│  ├─ 05_models_bi/
+│  │  ├─ semantic_model_documentation.md
+│  │  └─ measures_catalogue.md
+│  ├─ 06_ci_cd/
+│  │  ├─ deployment_notes.md
+│  │  └─ capacity_and_licensing_notes.md
+│  └─ 07_references/
+│     ├─ api_links.md
+│     └─ bibliography.md
+├─ infra/
+│  ├─ workspace_setup.md
+│  ├─ env.sample.json                 # example config (no secrets)
+│  └─ scripts/                        # optional automation helpers
+├─ governance/
+│  ├─ dpia_template.md
+│  ├─ data_sharing_checklist.md
+│  ├─ retention_matrix.xlsx
+│  ├─ dpa_article28_processor_clauses.md
+│  └─ roles_responsibilities_raci.md
+├─ data/
+│  ├─ bronze/                         # raw landing (do not commit large data)
+│  ├─ silver/
+│  └─ gold/
+├─ notebooks/
+│  ├─ 01_nhsbsa_pca_ingestion_and_cleaning.ipynb
+│  ├─ 02_bnf_code_conformance.ipynb
+│  ├─ 03_prescriber_details_join.ipynb
+│  ├─ 04_weather_datapoint_ingestion_3hourly.ipynb
+│  ├─ 05_enrichment_londonics_cardiovascular.ipynb
+│  └─ 06_quality_checks_and_kpis.ipynb
+├─ pipelines/
+│  ├─ nhsbsa_pca_http.json
+│  ├─ nhsbsa_bnf_code_http.json
+│  ├─ nhsbsa_prescriber_details_http.json
+│  └─ metoffice_3hourly_forecast_http.json
+├─ eventstreams/
+│  ├─ ops_events_custom_http_source.json
+│  └─ routes_kql_and_lakehouse.json
+├─ kql/
+│  ├─ databases/
+│  │  └─ ops_eventhouse.kql
+│  └─ queries/
+│     ├─ realtime_ops_overview.kql
+│     ├─ anomaly_candidates.kql
+│     └─ sla_alerts_example.kql
+├─ warehouse/
+│  ├─ ddl/
+│  │  ├─ dim_bnf.sql
+│  │  ├─ dim_prescriber.sql
+│  │  ├─ dim_weather_site.sql
+│  │  ├─ fact_prescriptions.sql
+│  │  └─ fact_weather_obs.sql
+│  └─ views/
+│     ├─ vw_prescriptions_enriched.sql
+│     └─ vw_monthly_chapter_costs.sql
+├─ powerbi/
+│  ├─ model_docs/
+│  │  ├─ tables.md
+│  │  ├─ relationships.png
+│  │  └─ calculations.md
+│  └─ pbix/                           # PBIX files (if you choose to include)
+├─ media/
+│  ├─ diagrams/
+│  │  ├─ architecture.drawio
+│  │  └─ realtime_flow.png
+│  ├─ screenshots/
+│  └─ videos/                         # short clips used in posts
+└─ .github/
+   ├─ ISSUE_TEMPLATE/
+   │  ├─ bug_report.md
+   │  └─ feature_request.md
+   ├─ PULL_REQUEST_TEMPLATE.md
+   └─ workflows/
+      ├─ lint-markdown.yml
+      └─ publish-docs.yml             # if using mkdocs/pages
